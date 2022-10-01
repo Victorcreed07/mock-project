@@ -2,10 +2,17 @@ import React from 'react'
 import '../css/dashboard.scss'
 import Button from '@mui/material/Button';
 import { Outlet, Link ,useNavigate } from "react-router-dom";
+import {useAuth} from "./auth.js"
 
 const Dashboard = () => {
 
+const auth = useAuth()
+const navigate = useNavigate()
+const handleLogout = () => {
 
+     auth.logout();
+     navigate("/")
+}
 	return (
 		<>
 			
@@ -35,11 +42,12 @@ const Dashboard = () => {
           
                <div className="collapse navbar-collapse">
                     <ul className="nav navbar-nav navbar-nav-first">
-                         <li ><a style={{fontSize: "30px"}} href="#home" className="smoothScroll">Home</a></li>
-                         <li><a style={{fontSize: "30px"}} href="#about" className="smoothScroll">About</a></li>
-                         <li><a style={{fontSize: "30px"}} href="#blog" className="smoothScroll">Blog</a></li>
-                         <li><a style={{fontSize: "30px"}} href="#work" className="smoothScroll">Our Work</a></li>
-                         <li><a style={{fontSize: "30px"}} href="#contact" className="smoothScroll">Contacts</a></li>
+                         <li ><a style={{fontSize: "30px"}} href="#about" className="smoothScroll">About</a></li>
+                         <li><a style={{fontSize: "30px"}} href="#blog" className="smoothScroll">Portals</a></li>
+                         <li><a style={{fontSize: "30px"}} href="#work" className="smoothScroll">Products</a></li>
+                         <li><a style={{fontSize: "30px"}} href="#contacts" className="smoothScroll">Contact</a></li>
+                        
+                         <li><a style={{fontSize: "30px",marginLeft:"120px",color:"#fcf403"}}  className="smoothScroll" href="#" onClick={handleLogout}>Logout</a></li>
                     </ul>
 
                </div>
@@ -159,7 +167,7 @@ const Dashboard = () => {
                                    <small></small>
                                    <h3><a href="">Model Builder</a></h3>
                                    <p>Welcome to the Vendor portal.Click the button to log into it.</p>
-                                   <Button variant="outlined"   style={{fontSize:"15px",fontWeight:20}}>Proceed</Button>
+                                   <Button variant="outlined"   style={{fontSize:"15px",fontWeight:20}}><Link to="/modelbuilder">Proceed</Link></Button>
                               </div>
                          </div>
                     </div>
@@ -271,7 +279,7 @@ const Dashboard = () => {
           </div>
      </section>
 
-     <footer data-stellar-background-ratio="0.5">
+     <footer data-stellar-background-ratio="0.5" id="contacts">
           <div className="container">
                <div className="row">
 

@@ -13,6 +13,7 @@ import DialogContentText from '@mui/material/DialogContentText';
 import DialogTitle from '@mui/material/DialogTitle';
 import Divider from '@mui/material/Divider'
 import { Outlet, Link ,useNavigate } from "react-router-dom";
+import Transitions from '../Transition'
 
 const Quality = () => {
 
@@ -98,6 +99,7 @@ navigate("/history_quality")
 //   }
 	return (
 		<>
+    <Transitions>
     <div className="body2">
 		<div className="bod">
 		<h1>Data Quality Reporter</h1>
@@ -122,7 +124,7 @@ navigate("/history_quality")
         <h2 className="card__title" >Upload</h2>
 
 
-        <FaUpload size={70} onClick={() => setOpen(true)}/>
+        <FaUpload size={70} onClick={() => setOpen(true)} style={{cursor:"pointer"}}/>
       </div>
       <div className="card__overlay"></div>
       <div className="card__content">
@@ -138,7 +140,7 @@ navigate("/history_quality")
         </div>
         <h2 className="card__title">Report</h2>
 
-        <TbReportSearch size={70} onClick= {handleReport}/>
+        <TbReportSearch size={70} onClick= {handleReport} style={{cursor:"pointer"}}/>
       </div>
       <div className="card__overlay"></div>
       <div className="card__content">
@@ -154,7 +156,7 @@ navigate("/history_quality")
         </div>
         <h2 className="card__title">History</h2>
 
-        <BsClockHistory  size={70} onClick= {handleHistory}/>
+        <BsClockHistory  size={70} onClick= {handleHistory} style={{cursor:"pointer"}}/>
       </div>
       <div className="card__overlay"></div>
       <div className="card__content">
@@ -245,6 +247,7 @@ navigate("/history_quality")
         </form>
       </Dialog>
       </div>
+      </Transitions>
 		</>
 
 		)

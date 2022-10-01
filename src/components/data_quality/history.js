@@ -5,27 +5,43 @@ import axios from 'axios';
 import groupBy from 'lodash/groupBy';
 import mapValues from 'lodash/mapValues';
 import omit from 'lodash/omit';
+import Transitions from '../Transition'
+
 const History = () => {
 
 const [history,setHistory] = useState([])
 const [loading,setLoading] = useState(false)
+const [error,setError] = useState(false)
 var key;
+try {
 useEffect(() => {
- setLoading(true)
+ 
+
+ 
+
+
 axios.get("http://localhost:5000/read_history")
       .then(function (response) {
 
         setHistory(response.data.history)
-      
+        setError(false)
         console.log(response.data)
       })
       .catch(function (error) {
+        setError(true)
         console.log("Error Ocuured")
       });
 
-      setLoading(false)
+      
 
 },[])
+
+
+ }
+ catch(err)
+ {
+    setError(true)
+ }
 const Property = "Date";
 const groupeddata = mapValues(groupBy(history,Property), x => x.map(y => omit(y,Property) ));
 var data = [];
@@ -44,11 +60,11 @@ console.log(history)
 console.log(keys)
 
 
-if(loading)
+if(error)
   {
     return (
 
-      <h1 className="load">Loading...</h1>
+      <h1 className="load">Cant load Error detected...</h1>
       
       )
   }
@@ -56,7 +72,10 @@ if(loading)
 
 	return (
 <>
+<Transitions>
 <main className="body825">
+<h1 style ={{position:"absolute",top:"10px"}} className="historyh1">History</h1>
+
 <div className="timeline">
   {
     keys.map((i) => {
@@ -92,6 +111,7 @@ if(loading)
 
 </div>
 </main>
+</Transitions>
 </>
 
 		)

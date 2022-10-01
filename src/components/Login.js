@@ -4,12 +4,15 @@ import axios from 'axios'
 import Button from '@mui/material/Button';
 import Alert from '@mui/material/Alert';
 import { Outlet, Link ,useNavigate } from "react-router-dom";
+import {useAuth} from "./auth.js";
 const Login = () => {
 
 const [name,setName] = useState("")
 const [password,setPassword] = useState("")
 const [error,setError] = useState(false)
  const navigate = useNavigate();
+
+ const auth = useAuth();
 const handleClick = () => {
     
    
@@ -29,8 +32,10 @@ const handleClick = () => {
         console.log(response.data)
         if(response.data.status.statusMessage === "Identical")
         	{
+        		auth.login(data)
         		setError(false)
-        		navigate("/dashboard")
+
+        		navigate("/dashboard",{ replace:true})
 
         	}
         	else

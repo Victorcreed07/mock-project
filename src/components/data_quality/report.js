@@ -10,6 +10,8 @@ import TableContainer from '@mui/material/TableContainer';
 import TableHead from '@mui/material/TableHead';
 import TableRow from '@mui/material/TableRow';
 import Paper from '@mui/material/Paper';
+import Transitions from '../Transition'
+
 
 const Report = () => {
 var data = [];
@@ -95,7 +97,7 @@ console.log(Object.values(newmatrix))
 
 	return (
 		<>
-		
+		<Transitions>
 		 <main className="body45">
       <div className='container322'>
       <article className="artichead" style={{textAlign:"center"}}>
@@ -111,7 +113,7 @@ console.log(Object.values(newmatrix))
         </button>
       </header>
       <br />
-      	{showInfo && <p className="para">{newdata.filetype?`The type of the file that is 
+      	{showInfo && <p className="para" style={{fontSize:"20px"}}>{newdata.filetype?`The type of the file that is 
       		uploaded is ${(newdata.filetype).slice(0,-1)}`:"Select FileType to view data"}</p>}
     		</article>
     		<br />
@@ -124,7 +126,7 @@ console.log(Object.values(newmatrix))
           {showInfo1 ? <AiOutlineMinus /> : <AiOutlinePlus />}
         </button>
       </header>
-      	{showInfo1 && <p className="para">{newdata.shape?`The no of rows and columns present
+      	{showInfo1 && <p className="para" style={{fontSize:"20px"}}>{newdata.shape?`The no of rows and columns present
       		in this dataset is respectively ${(newdata.shape)}`:"Select shape to view data"}</p>}
     		</article>
 
@@ -139,7 +141,7 @@ console.log(Object.values(newmatrix))
           {showInfo2 ? <AiOutlineMinus /> : <AiOutlinePlus />}
         </button>
       </header>
-      	{showInfo2 && <p className="para">{newdata.duplicates !== undefined ?`The total sum of all duplicate values
+      	{showInfo2 && <p className="para" style={{fontSize:"20px"}}>{newdata.duplicates !== undefined ?`The total sum of all duplicate values
       	present in this dataset is  ${newdata.duplicates}`:"Select duplicates to view data"}</p>}
     		</article>
 
@@ -322,7 +324,7 @@ console.log(Object.values(newmatrix))
         </section>
       </div>
     </main>
-    
+    </Transitions>
 		</>
 
 		)
