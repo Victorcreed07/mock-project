@@ -12,7 +12,9 @@ import { AnimatePresence } from 'framer-motion';
 import { useLocation } from 'react-router-dom';
 import {AuthProvider} from './components/auth.js';
 import {RequireAuth} from './components/RequireAuth.js';
-import Output from './components/model_builder/output'
+import Output from './components/model_builder/output';
+import PowerBi from './components/model_builder/powerbi'
+import ModelHistory from './components/model_builder/modelhistory'
 
 function App() {
   return (
@@ -26,9 +28,11 @@ function App() {
          <Route path="/quality" element={<RequireAuth><Quality /></RequireAuth>} />
          <Route path="/report_quality" element={<RequireAuth><Report /></RequireAuth>} />
          <Route path="/history_quality" element={<RequireAuth><History /></RequireAuth>} />
-          <Route path="/modelbuilder" element={<RequireAuth><ModelBuilder /></RequireAuth>} />
+          <Route path="/modelbuilder" element={<ModelBuilder />} />
           <Route path="/userinput" element={<UserInput />} />
           <Route path="/output" element={<Output />} />
+          <Route path="/powerbi" element={<PowerBi />} />
+          <Route path="/modelhistory" element={<ModelHistory />} />
       </Routes>
       </AnimatePresence>
     </BrowserRouter>

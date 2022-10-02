@@ -5,12 +5,14 @@ import axios from 'axios';
 import ConfettiGenerator from "confetti-js";
 import { Outlet, Link ,useNavigate,useLocation } from "react-router-dom";
 import CanvasJSReact from '../../canvas/canvasjs.react';
+import { BiLinkExternal } from "react-icons/bi";
 
 
 const Output = () => {
 
 const refContain = useRef(null)
 const location = useLocation()
+const [error,setError] = useState(false)
 const [output,setOutput] = useState(location.state.output)
 const [train,setTrain] = useState([
   {
@@ -78,6 +80,7 @@ useEffect(() => {
 
 	axios.get("http://localhost:5000/chart_data")
       .then(function (response) {
+      	setError(false)
       	for(var i=0;i<response.data.testing.length;i++)
       		{
       			datapoints1[i] = {"x":i,"y":response.data.testing[i]}
@@ -88,7 +91,7 @@ useEffect(() => {
         console.log(response.data)
       })
       .catch(function (error) {
-       
+       setError(true)
         console.log("Error Ocuured")
       });
 
@@ -142,6 +145,15 @@ const options2 = {
 			}]
 		}
 
+	if(error)
+  {
+    return (
+
+      <h1 className="load">Cant load Error detected...</h1>
+      
+      )
+  }
+
 	return (
 		<>
 		{
@@ -185,6 +197,14 @@ const options2 = {
 
 
 		}
+<br />
+<br />
+<br />
+		<div className="centerdiv">
+			<a href="#" ><Link to="/powerbi">To get more information about the dataset visit our Powerbi Dashboard</Link><BiLinkExternal /></a>
+		</div>
+<br />
+<br />
 		</>
 
 		)

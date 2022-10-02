@@ -3,6 +3,7 @@ import '../../css/userinput.scss'
 import { FaPaw } from "react-icons/fa";
 import { Outlet, Link ,useNavigate } from "react-router-dom";
 import axios from 'axios';
+import Transitions from '../Transition'
 const UserInput = () => {
 
 const [name,setName] = useState("")
@@ -190,6 +191,7 @@ else
 	return (
 
 		<>
+    <Transitions>
     {load && <div className="loader"></div>}
 		<main className="body000" ref={refContainer}>
 		<div className="signup-container">
@@ -274,7 +276,7 @@ else
   </div>
 </div>
 </main>
-
+</Transitions>
 		</>
 
 		)

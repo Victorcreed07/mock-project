@@ -38,7 +38,7 @@ const handleReport = () => {
 
 const handleHistory = () => {
 
-
+navigate("/modelhistory")
   
 
 
@@ -69,8 +69,8 @@ const handleHistory = () => {
     <br />
     <br />
     <br />
-		<div className="container23">
-  <ul className="cards">
+		<div className="container23" style={{textAlign:"center"}}>
+  <ul className="cards" style={{gridTemplateColumns: "repeat(2, 1fr)"}}>
     <li className="card cards__item">
       <div className="card__frame">
         <div className="card__picture">
@@ -89,22 +89,22 @@ const handleHistory = () => {
         Good Luck!!!</p>
       </div>
     </li>
-    <li className="card cards__item">
-      <div className="card__frame">
-        <div className="card__picture">
-          <img src="https://image.flaticon.com/icons/svg/1336/1336494.svg" alt="" width="120" />
-        </div>
-        <h2 className="card__title">Results</h2>
-
-        <VscOutput size={70} style={{cursor:"pointer"}}/>
-      </div>
-      <div className="card__overlay"></div>
-      <div className="card__content">
-        <h2 style={{color:"white"}}>Results</h2>
-        <p style={{color:"white"}}>The results of your prediction done are displayed here.Hope
-        you are healthy:)</p>
-      </div>
-    </li>
+{/*     <li className="card cards__item"> */}
+{/*       <div className="card__frame"> */}
+{/*         <div className="card__picture"> */}
+{/*           <img src="https://image.flaticon.com/icons/svg/1336/1336494.svg" alt="" width="120" /> */}
+{/*         </div> */}
+{/*         <h2 className="card__title">Results</h2> */}
+{/*  */}
+{/*         <VscOutput size={70} style={{cursor:"pointer"}}/> */}
+{/*       </div> */}
+{/*       <div className="card__overlay"></div> */}
+{/*       <div className="card__content"> */}
+{/*         <h2 style={{color:"white"}}>Results</h2> */}
+{/*         <p style={{color:"white"}}>The results of your prediction done are displayed here.Hope */}
+{/*         you are healthy:)</p> */}
+{/*       </div> */}
+{/*     </li> */}
     <li className="card cards__item">
       <div className="card__frame">
         <div className="card__picture">
@@ -112,7 +112,7 @@ const handleHistory = () => {
         </div>
         <h2 className="card__title">History</h2>
 
-        <BsClockHistory  size={70} style={{cursor:"pointer"}}/>
+        <BsClockHistory  size={70} style={{cursor:"pointer"}} onClick={handleHistory}/>
       </div>
       <div className="card__overlay"></div>
       <div className="card__content">
