@@ -15,6 +15,8 @@ import {RequireAuth} from './components/RequireAuth.js';
 import Output from './components/model_builder/output';
 import PowerBi from './components/model_builder/powerbi'
 import ModelHistory from './components/model_builder/modelhistory'
+import SalesForecast from './components/sales_forecasting/sales_dash'
+import AboutSales from './components/sales_forecasting/about_sales'
 
 function App() {
   return (
@@ -33,6 +35,8 @@ function App() {
           <Route path="/output" element={<Output />} />
           <Route path="/powerbi" element={<PowerBi />} />
           <Route path="/modelhistory" element={<ModelHistory />} />
+          <Route path="/forecast" element={<SalesForecast />} />
+           <Route path="/abtsales" element={<AboutSales />} />
       </Routes>
       </AnimatePresence>
     </BrowserRouter>

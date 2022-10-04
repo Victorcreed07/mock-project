@@ -124,7 +124,7 @@ navigate("/history_quality")
         <h2 className="card__title" >Upload</h2>
 
 
-        <FaUpload size={70} onClick={() => setOpen(true)} style={{cursor:"pointer"}}/>
+        <FaUpload size={70} onClick={() => setOpen(true)} style={{cursor:"pointer",color:"#34ebe8"}}/>
       </div>
       <div className="card__overlay"></div>
       <div className="card__content">
@@ -140,7 +140,7 @@ navigate("/history_quality")
         </div>
         <h2 className="card__title">Report</h2>
 
-        <TbReportSearch size={70} onClick= {handleReport} style={{cursor:"pointer"}}/>
+        <TbReportSearch size={70} onClick= {handleReport} style={{cursor:"pointer",color:"#eb3434"}}/>
       </div>
       <div className="card__overlay"></div>
       <div className="card__content">
@@ -156,7 +156,7 @@ navigate("/history_quality")
         </div>
         <h2 className="card__title">History</h2>
 
-        <BsClockHistory  size={70} onClick= {handleHistory} style={{cursor:"pointer"}}/>
+        <BsClockHistory  size={70} onClick= {handleHistory} style={{cursor:"pointer",color:"brown"}}/>
       </div>
       <div className="card__overlay"></div>
       <div className="card__content">

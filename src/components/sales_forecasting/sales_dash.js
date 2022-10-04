@@ -13,18 +13,22 @@ import DialogContentText from '@mui/material/DialogContentText';
 import DialogTitle from '@mui/material/DialogTitle';
 import Divider from '@mui/material/Divider'
 import { Outlet, Link ,useNavigate } from "react-router-dom";
+import { FcSalesPerformance } from "react-icons/fc";
 import Transitions from '../Transition'
-const ModelBuilder = () => {
+
+
+const SalesForecast = () => {
 
 
 
 const navigate = useNavigate()
 
 
-const handlePrediction = (e) => {
+const handleForecast = (e) => {
  
   
-navigate("/userinput")
+navigate("/abtsales")
+
 
   
       
@@ -38,7 +42,7 @@ const handleReport = () => {
 
 const handleHistory = () => {
 
-navigate("/modelhistory")
+
   
 
 
@@ -57,7 +61,7 @@ navigate("/modelhistory")
     <Transitions>
     <div className="body2">
 		<div className="bod">
-		<h1>Model Builder</h1>
+		<h1>Sales Forecaster</h1>
 		</div>
 		<br />
 		<br />
@@ -76,17 +80,16 @@ navigate("/modelhistory")
         <div className="card__picture">
           <img src="https://image.flaticon.com/icons/svg/1496/1496034.svg" alt="" width="120" />
         </div>
-        <h2 className="card__title" >Prediction</h2>
+        <h2 className="card__title" >Forecast</h2>
 
 
-        <MdOnlinePrediction size={70} onClick ={handlePrediction} style={{cursor:"pointer",color:"#ebc034"}}/>
+        <FcSalesPerformance size={70} onClick ={handleForecast} style={{cursor:"pointer"}}/>
       </div>
       <div className="card__overlay"></div>
       <div className="card__content">
-        <h2 style={{color:"white"}} >Find for yourself</h2>
-        <p style={{color:"white"}}>The following is a prediction of whether a particular user
-        has diabetes are not as it is one of the widesprread nuisance.Go and test yourself.
-        Good Luck!!!</p>
+        <h2 style={{color:"white"}} >Sales Forecast</h2>
+        <p style={{color:"white"}}>Here a timeseries algorithm is used to forecast the sales
+        of a particular company during a particular time period as accuratly as possible</p>
       </div>
     </li>
 {/*     <li className="card cards__item"> */}
@@ -140,4 +143,4 @@ navigate("/modelhistory")
 		)
 }
 
-export default ModelBuilder
+export default SalesForecast
