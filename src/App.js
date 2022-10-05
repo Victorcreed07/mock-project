@@ -17,6 +17,7 @@ import PowerBi from './components/model_builder/powerbi'
 import ModelHistory from './components/model_builder/modelhistory'
 import SalesForecast from './components/sales_forecasting/sales_dash'
 import AboutSales from './components/sales_forecasting/about_sales'
+import ForeCast from './components/sales_forecasting/forecast'
 
 function App() {
   return (
@@ -37,6 +38,7 @@ function App() {
           <Route path="/modelhistory" element={<ModelHistory />} />
           <Route path="/forecast" element={<SalesForecast />} />
            <Route path="/abtsales" element={<AboutSales />} />
+            <Route path="/timeseries" element={<ForeCast />} />
       </Routes>
       </AnimatePresence>
     </BrowserRouter>

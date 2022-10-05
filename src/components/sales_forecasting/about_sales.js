@@ -4,6 +4,9 @@ import Box from '@mui/material/Box';
 import Slider from '@mui/material/Slider';
 import axios from 'axios';
 import Plot from 'react-plotly.js';
+import Button from '@mui/material/Button';
+import { AiOutlineSend } from "react-icons/ai";
+import { Outlet, Link ,useNavigate } from "react-router-dom";
 
 const AboutSales = () => {
 
@@ -23,6 +26,7 @@ const AboutSales = () => {
 	var homeoffice = [];
 	var count = 0
 	var a=0,b=0,c=0;
+	const navigate = useNavigate()
 
 const handleSliderChange = (e) => {
 
@@ -32,6 +36,19 @@ const handleRadio = (e) => {
 
 	setPeriod(e.target.value)
 	setValue(1)
+}
+
+const handleProceed = () => {
+
+	const time = {
+		value:value,
+		period:period
+	}
+console.log(time)
+navigate("/timeseries",{
+
+        state:time
+          })
 }
 
 useEffect(() => {
@@ -115,6 +132,7 @@ axios.get("http://localhost:5000/getbasedata")
 			</div>
 			</section>
 			<section className="preddiction">
+			<form>
 				<div className="idkk">
 					<h2 >Forecasting</h2>
 					<p>Select the time period of the prediction</p>
@@ -144,7 +162,11 @@ axios.get("http://localhost:5000/getbasedata")
 <Slider  aria-label="Default" style={{width: 300}} valueLabelDisplay="auto" defaultValue={1} step={1} marks min={1} max={3} className="sliddder" onChange={handleSliderChange}/>
 </div>
 }
+ <Button variant="contained" endIcon={<AiOutlineSend />} style={{fontSize:"15px"}} onClick={handleProceed}>
+        Proceed
+      </Button>
 				</div>
+				</form>
 			</section>
 
 			<section>
