@@ -43,7 +43,7 @@ const handleReport = () => {
 const handleHistory = () => {
 
 
-  
+  navigate("/salehistory")
 
 
 }

@@ -6,7 +6,7 @@ import axios from 'axios';
 import Plot from 'react-plotly.js';
 import Button from '@mui/material/Button';
 import { AiOutlineSend } from "react-icons/ai";
-
+import { BiLinkExternal } from "react-icons/bi";
 import { Outlet, Link ,useNavigate,useLocation } from "react-router-dom";
 
 
@@ -15,82 +15,21 @@ const ForeCast = () => {
 
 	const location = useLocation()
 	const [load,setLoad] = useState(false)
-	const [index,setIndex] = useState()
-	const [sales,setSales] = useState()
-	const [trsale,setTrSales] = useState()
-	const [forecast,setForecast] = useState()
-	const [index2,setIndex2] = useState()
-	const [index3,setIndex3] = useState()
-	const [index4,setIndex4] = useState()
-	const [last,setLast] = useState()
-	const [orilast,setOriLast] = useState()
-	const [output,setOutput] = useState(location.state)
+	const [index,setIndex] = useState(location.state.index)
+	const [sales,setSales] = useState(location.state.sales)
+	const [trsale,setTrSales] = useState(location.state.trsale)
+	const [forecast,setForecast] = useState(location.state.forecast)
+	const [index2,setIndex2] = useState(location.state.index2)
+	const [index3,setIndex3] = useState(location.state.index3)
+	const [index4,setIndex4] = useState(location.state.index4)
+	const [last,setLast] = useState(location.state.last)
+	const [orilast,setOriLast] = useState(location.state.orilast)
+	const [output,setOutput] = useState(location.state.time)
 	var saledat = []
 	var dates = []
 	var trenddates = []
 	var trendsale = []
 
-
-useEffect(() => {
-	setLoad(true)
-	axios.post("http://localhost:5000/getforecast",output)
-      .then(function (response) {
-      	
-      	for(var i=0;i<response.data.original.index.length;i++)
-        	{
-        		dates[i] = response.data.original.index[i].slice(8,16)
-        	}
-        for(var i=0;i<response.data.trend.index.length;i++)
-        	{
-        		trenddates[i] = response.data.trend.index[i].slice(8,16)
-        	}
-        setIndex(dates)
-         setIndex4(dates.slice(dates.length - 6))
-        setIndex2((dates.slice(dates.length - 10)).concat(response.data.forecastdates))
-         setIndex3(trenddates)
-        for(var i=0;i<response.data.original.data.length;i++)
-        	{
-        		saledat[i] = response.data.original.data[i][0]
-        	}
-        	for(var i=0;i<response.data.trend.data.length;i++)
-        	{
-        		trendsale[i] = response.data.trend.data[i][0]
-        	}
-        	setSales(saledat)
-        	setOriLast(saledat.slice(saledat.length - 6))
-        	// setForecast(response.data.forecast)
-        	setForecast((saledat.slice(saledat.length - 10)).concat(response.data.forecast))
-        	setTrSales(trendsale)
-        	setLast(response.data.lastsix)
-        	// setOriLast(sales.slice(-6))
-        	// setIndex4(index.slice(-6))
-        console.log(response.data)
-        setLoad(false)
-      })
-      .catch(function (error) {
-        
-        console.log("Error Ocuured")
-      });
-      
-
-},[])
-
-
-useEffect(() => {
-
-
-},[])
-
-
-if(load)
-{
-
-	return (
-		<>
-		<div className="loader"></div>
-		</>
-		)
-}
 
 	return (
 
@@ -131,7 +70,24 @@ if(load)
           },
           
         ]}
-        layout={ {width: 1400, height: 400, title: 'Predicted Sales',plot_bgcolor:'#FBF2CF'} }
+        layout={ {shapes: [
+        // 1st highlight during Feb 4 - Feb 6
+        {
+            type: 'rect',
+            // x-reference is assigned to the x-values
+            xref: 'x',
+            // y-reference is assigned to the plot paper [0,1]
+            yref: 'paper',
+            x0: 'Mar 2014',
+            y0: 0,
+            x1: 'Dec 2014',
+            y1: 1,
+            fillcolor: '9CFF2E',
+            opacity: 0.2,
+            line: {
+                width: 0
+            }
+        }],width: 1400, height: 450, title: 'Predicted Sales',plot_bgcolor:'#FBF2CF'} }
       />
 </section>
 <section className="ariba2">
@@ -188,6 +144,13 @@ if(load)
       />
       </div>
 </section>
+<br />
+<br />
+<br />
+		<div className="centerdiv">
+			<a href="#" ><Link to="/powerbi2">To get more information about the dataset visit our Powerbi Dashboard</Link><BiLinkExternal /></a>
+		</div>
+<br />
 </main>
 </>
 

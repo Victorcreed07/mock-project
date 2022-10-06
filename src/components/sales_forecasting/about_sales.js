@@ -12,6 +12,7 @@ const AboutSales = () => {
 
 	const [value,setValue] = useState(1)
 	const [period,setPeriod] = useState("month")
+	const [load,setLoad] = useState(false)
 	const [index,setIndex] = useState()
 	const [market,setMarket] = useState()
 	const [index2,setIndex2] = useState()
@@ -26,6 +27,10 @@ const AboutSales = () => {
 	var homeoffice = [];
 	var count = 0
 	var a=0,b=0,c=0;
+	var saledat = []
+	var dates = []
+	var trenddates = []
+	var trendsale = []
 	const navigate = useNavigate()
 
 const handleSliderChange = (e) => {
@@ -45,11 +50,70 @@ const handleProceed = () => {
 		period:period
 	}
 console.log(time)
-navigate("/timeseries",{
 
-        state:time
+
+setLoad(true)
+	axios.post("http://localhost:5000/getforecast",time)
+      .then(function (response) {
+      	
+      	for(var i=0;i<response.data.original.index.length;i++)
+        	{
+        		dates[i] = response.data.original.index[i].slice(8,16)
+        	}
+        for(var i=0;i<response.data.trend.index.length;i++)
+        	{
+        		trenddates[i] = response.data.trend.index[i].slice(8,16)
+        	}
+        // setIndex(dates)
+        //  setIndex4(dates.slice(dates.length - 6))
+        // setIndex2((dates.slice(dates.length - 10)).concat(response.data.forecastdates))
+        //  setIndex3(trenddates)
+        for(var i=0;i<response.data.original.data.length;i++)
+        	{
+        		saledat[i] = response.data.original.data[i][0]
+        	}
+        	for(var i=0;i<response.data.trend.data.length;i++)
+        	{
+        		trendsale[i] = response.data.trend.data[i][0]
+        	}
+        	// setSales(saledat)
+        	// setOriLast(saledat.slice(saledat.length - 6))
+        	// // setForecast(response.data.forecast)
+        	// setForecast((saledat.slice(saledat.length - 10)).concat(response.data.forecast))
+        	// setTrSales(trendsale)
+        	// setLast(response.data.lastsix)
+        	// setOriLast(sales.slice(-6))
+        	// setIndex4(index.slice(-6))
+        console.log(response.data)
+        setLoad(false)
+        navigate("/timeseries",{
+
+        state:{
+        		index:dates,
+        		index4:dates.slice(dates.length - 6),
+        		index2:(dates.slice(dates.length - 10)).concat(response.data.forecastdates),
+        		index3:trenddates,
+        		sales:saledat,
+        		orilast:saledat.slice(saledat.length - 6),
+        		forecast:(saledat.slice(saledat.length - 10)).concat(response.data.forecast),
+        		trsale:trendsale,
+        		last:response.data.lastsix,
+        		time:time
+
+
+        }
           })
 }
+      )
+      .catch(function (error) {
+        
+        console.log("Error Ocuured")
+      });
+      
+
+
+}
+
 
 useEffect(() => {
 
@@ -104,6 +168,17 @@ axios.get("http://localhost:5000/getbasedata")
       });
 
 },[])
+
+
+if(load)
+{
+
+	return (
+		<>
+		<div className="loader"></div>
+		</>
+		)
+}
 
 	return (
 			<>
