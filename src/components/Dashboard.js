@@ -198,7 +198,7 @@ const handleLogout = () => {
                                    <small></small>
                                    <h3><a href="">Algorithm Analyzer</a></h3>
                                    <p>Welcome to the Employee portal.Click the button to log into it.</p>
-                                   <Button variant="outlined"  style={{fontSize:"15px",fontWeight:20}}>Proceed</Button>
+                                   <Button variant="outlined"  style={{fontSize:"15px",fontWeight:20}}><Link to="/algoanalyzer">Proceed</Link></Button>
                               </div>
                          </div>
                     </div>

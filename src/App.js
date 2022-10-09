@@ -20,6 +20,10 @@ import AboutSales from './components/sales_forecasting/about_sales'
 import ForeCast from './components/sales_forecasting/forecast'
 import PowerBi2 from './components/sales_forecasting/powerbi2'
 import SaleHistory from './components/sales_forecasting/salehistory'
+import AlgoAnalyzer from './components/algorithm_analyzer/algo_dash'
+import BasicEDA from './components/algorithm_analyzer/algo_eda'
+import Table from './components/algorithm_analyzer/algo_table'
+
 
 function App() {
   return (
@@ -43,6 +47,9 @@ function App() {
             <Route path="/timeseries" element={<ForeCast />} />
              <Route path="/powerbi2" element={<PowerBi2 />} />
             <Route path="/salehistory" element={<SaleHistory />} />
+             <Route path="/algoanalyzer" element={<AlgoAnalyzer />} />
+              <Route path="/basiceda" element={<BasicEDA />} />
+               <Route path="/table" element={<Table />} />
       </Routes>
       </AnimatePresence>
     </BrowserRouter>
