@@ -1,4 +1,4 @@
-import React,{useState,useRef,useEffect} from 'react'
+import React,{useState,useRef} from 'react'
 import '../../css/quality_dash.scss'
 import '../../css/algo.css'
 import Button from '@mui/material/Button';
@@ -40,14 +40,10 @@ const [load,setLoad] = useState(false)
 const [model,setModel] = useState("")
 const [target,setTarget]  = useState()
 const [form,setForm] = useState()
-const [eda,setEda] = useState(true)
 const [targetarr,setTargetarr] = useState(["None","Upload dataset","Do it now"])
 
 
-useEffect(() => {
 
-
-})
 const handleUpload = (e) => {
  
   
@@ -80,9 +76,7 @@ setForm(formData)
   localStorage.setItem("text", JSON.stringify(text));
 
 setLoad(true)
- axios.post("http://localhost:5000/getalgo_data",formData,{ params:{
-  eda 
-}})
+ axios.post("http://localhost:5000/getalgo_data",formData)
       .then(function (response) {
 
 
@@ -110,7 +104,7 @@ const newdat = {
   model:model,
   dataset:JSON.parse(localStorage.getItem("file"))
 }
- localStorage.setItem("model", JSON.stringify(model));
+
 console.log(newdat)
 setLoad(true)
 axios.post("http://localhost:5000/gettable",form,{ params: {
@@ -123,35 +117,18 @@ axios.post("http://localhost:5000/gettable",form,{ params: {
        // setData(response.data)
         console.log(response.data)
          setLoad(false)
-          localStorage.setItem("table", JSON.stringify(response.data.table));
         navigate("/table",{
 
-          state:{
-          table:response.data.table,
-          model:model,
-          eda:eda
-          }
+          state:response.data.table
         })
 
-       
+        
         
       })
       .catch(function (error) {
         console.log("Error Ocuured")
       });
 
-    }
-
-
-    const handleProceed = () => {
-
-      navigate("/table",{
-
-        state:{
-          table:JSON.parse(localStorage.getItem("table")),
-          model:JSON.parse(localStorage.getItem("model"))
-        }
-      })
     }
 
 
@@ -196,8 +173,8 @@ if(load)
     <br />
     <br />
     <br />
-    <div className="container23" style={{textAlign:"center"}}>
-  <ul className="cards" style={{gridTemplateColumns: "repeat(2, 1fr)"}}>
+    <div className="container23">
+  <ul className="cards" >
     <li className="card cards__item">
       <div className="card__frame">
         <div className="card__picture">
@@ -231,21 +208,21 @@ if(load)
 {/*         you are healthy:)</p> */}
 {/*       </div> */}
 {/*     </li> */}
-{/*     <li className="card cards__item"> */}
-{/*       <div className="card__frame"> */}
-{/*         <div className="card__picture"> */}
-{/*           <img src="https://image.flaticon.com/icons/svg/478/478543.svg" alt="" width="120" /> */}
-{/*         </div> */}
-{/*         <h2 className="card__title">EDA</h2> */}
-{/*  */}
-{/*         <FaHourglassStart  size={70} style={{cursor:"pointer",color:"gray"}} onClick={handleResult}/> */}
-{/*       </div> */}
-{/*       <div className="card__overlay"></div> */}
-{/*       <div className="card__content"> */}
-{/*         <h2 style={{color:"white"}}>Basic EDA</h2> */}
-{/*         <p style={{color:"white"}}>Get a general understanding of the dataset with various tables and graphical representations</p> */}
-{/*       </div> */}
-{/*     </li> */}
+    <li className="card cards__item">
+      <div className="card__frame">
+        <div className="card__picture">
+          <img src="https://image.flaticon.com/icons/svg/478/478543.svg" alt="" width="120" />
+        </div>
+        <h2 className="card__title">EDA</h2>
+
+        <FaHourglassStart  size={70} style={{cursor:"pointer",color:"gray"}} onClick={handleResult}/>
+      </div>
+      <div className="card__overlay"></div>
+      <div className="card__content">
+        <h2 style={{color:"white"}}>Basic EDA</h2>
+        <p style={{color:"white"}}>Get a general understanding of the dataset with various tables and graphical representations</p>
+      </div>
+    </li>
     <li className="card cards__item">
       <div className="card__frame">
         <div className="card__picture">
@@ -276,7 +253,6 @@ if(load)
      <Dialog open={open} onClose={handleClose}>
      <form onSubmit={handleSubmit} encType="multipart/form-data">
         <DialogTitle style={{fontSize:"20px",fontWeight:"bold"}}>Upload</DialogTitle>
-        <Divider />
         <DialogContent>
           <DialogContentText style={{fontSize:"15px"}}>
             Upload the dataset that you want to analyze to find the efficient algorithm
@@ -286,8 +262,6 @@ if(load)
   <br />
 <label  htmlFor="actual-btn" className="file">Choose File</label>&nbsp;
 <span >{text}</span>
-<br />
-<label type="button" onClick={() => setEda(!eda)} className="file222">{eda?"Skip Eda":"Include Eda"}</label>
 
         </DialogContent>
         <DialogActions>
@@ -313,12 +287,12 @@ if(load)
         <DialogTitle style={{fontSize:"20px",fontWeight:"bold"}}>PreProcessing</DialogTitle>
         <Divider />
         <DialogContent>
-          <DialogContentText style={{fontSize:"15px",color:"black"}}>
+          <DialogContentText style={{fontSize:"15px"}}>
             Select the target and the type of Model
           </DialogContentText>
 <br />
 <div className="alda">
-  <label style={{fontWeight:"bold"}}>Dataset:   </label>&nbsp;&nbsp;<span>{text}</span>
+  <label>Dataset:   </label>&nbsp;&nbsp;<span>{JSON.parse(localStorage.getItem("text"))}</span>
 </div>
 <div className="alda2">
   <FormControl sx={{ m: 1, minWidth: 150 }}>
@@ -361,7 +335,7 @@ if(load)
           {/* <MenuItem value={30}>Thirty</MenuItem> */}
 
           {
-            targetarr.map((i,index) => {
+            JSON.parse(localStorage.getItem("names")).map((i,index) => {
 
 
               return (
@@ -378,8 +352,8 @@ if(load)
 
         </DialogContent>
         <DialogActions>
-          {form !== undefined && <Button type="submit" onClick={handleClose2}>Submit</Button>}
-           <Button  onClick={handleProceed}>Proceed</Button>
+          <Button type="submit" onClick={handleClose2}>Submit</Button>
+          
         </DialogActions>
         </form>
       </Dialog>

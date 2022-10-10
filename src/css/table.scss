@@ -1,3 +1,5 @@
+
+@import url('http://fonts.cdnfonts.com/css/8bit-wonder');
 .booododod{
 
   margin-left:10%;
@@ -5,3 +7,43 @@
   background-color:lightblue;
 }
 
+.buttt {
+   background-color: #4CAF50;
+  border: none;
+  color: white;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  cursor: pointer;
+
+}
+
+.errormsgg {
+
+  margin-top:20%;
+  margin-left:20%;
+  color:red;
+  font-family: '8BIT WONDER', sans-serif;
+}
+
+th {
+
+  cursor:pointer;
+  position:relative;
+}
+
+.iconns {
+position:relative;
+top:2px;
+left:3px;
+
+
+
+}
+.disable {
+
+  cursor:not-allowed;
+}
