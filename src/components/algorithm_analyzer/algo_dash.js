@@ -37,10 +37,11 @@ const [open2,setOpen2] = useState(false)
 const [text,setText] = useState("No file chosen")
 const [data,setData] = useState()
 const [load,setLoad] = useState(false)
+const [proceed,setProceed] = useState(true)
 const [model,setModel] = useState("")
 const [target,setTarget]  = useState()
 const [form,setForm] = useState()
-const [eda,setEda] = useState(true)
+const [eda,setEda] = useState(false)
 const [targetarr,setTargetarr] = useState(["None","Upload dataset","Do it now"])
 
 
@@ -145,11 +146,14 @@ axios.post("http://localhost:5000/gettable",form,{ params: {
 
     const handleProceed = () => {
 
+      setProceed(false)
+
       navigate("/table",{
 
         state:{
           table:JSON.parse(localStorage.getItem("table")),
-          model:JSON.parse(localStorage.getItem("model"))
+          model:JSON.parse(localStorage.getItem("model")),
+          eda:eda
         }
       })
     }
@@ -282,7 +286,7 @@ if(load)
             Upload the dataset that you want to analyze to find the efficient algorithm
           </DialogContentText>
 
-  <input type="file" id="actual-btn" className="hide"  onChange={(e) =>setText(e.target.value)} name="file"/>
+  <input type="file" id="actual-btn" className="hide"  onChange={(e) =>setText(e.target.value)} name="file" required/>
   <br />
 <label  htmlFor="actual-btn" className="file">Choose File</label>&nbsp;
 <span >{text}</span>
@@ -330,6 +334,7 @@ if(load)
           label="Age"
           onChange={(e) => setModel(e.target.value)}
           className="heeehaw"
+          
         >
           <MenuItem value="" style={{fontSize:"15px"}}>
             <em>None</em>
@@ -352,6 +357,7 @@ if(load)
           label="Age"
           onChange={(e) => setTarget(e.target.value)}
           className="heeehaw"
+          
         >
           {/* <MenuItem value=""> */}
           {/*   <em>None</em> */}

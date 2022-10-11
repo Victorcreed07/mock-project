@@ -2,7 +2,19 @@ import React,{useState,useRef,useEffect} from 'react'
 import '../../css/history.scss'
 
 import axios from 'axios';
-
+import Button from '@mui/material/Button';
+import TextField from '@mui/material/TextField';
+import Dialog from '@mui/material/Dialog';
+import DialogActions from '@mui/material/DialogActions';
+import DialogContent from '@mui/material/DialogContent';
+import DialogContentText from '@mui/material/DialogContentText';
+import DialogTitle from '@mui/material/DialogTitle';
+import MenuItem from '@mui/material/MenuItem';
+import Divider from '@mui/material/Divider'
+import Select from '@mui/material/Select';
+import InputLabel from '@mui/material/InputLabel';
+import FormControl from '@mui/material/FormControl';
+import {useAuth} from "../auth.js";
 import { Outlet, Link ,useNavigate,useLocation } from "react-router-dom";
 import Transitions from '../Transition'
 
@@ -11,6 +23,9 @@ const SaleHistory = () => {
 const [history,setHistory] = useState([])
 const [loading,setLoading] = useState(false)
 const [error,setError] = useState(false)
+const [open,setOpen] = useState(false)
+const [time,setTime] = useState("All")
+const duration = useAuth();
 var key;
 var newarr = []
 
@@ -59,7 +74,40 @@ console.log(history)
 //  var values = Object.values(groupeddata)
 //  var keys = Object.keys(groupeddata)
 // console.log(keys)
+const handleClose = () => {
 
+  setOpen(false)
+}
+
+
+const handleSubmit = (e) => {
+
+e.preventDefault()
+console.log(time)
+var newhours;
+
+if(time === "1")
+  {
+
+ newhours = history.filter((i) => parseInt(Math.abs(new Date() - duration.calculatetime(i.Date)) / (1000*60*60))  > 0 )
+setHistory(newhours)
+  }
+  else if(time === "24")
+    {
+      newhours = history.filter((i) => parseInt(Math.abs(new Date() - duration.calculatetime(i.Date)) / (1000*60*60))  > 25 )
+      setHistory(newhours)
+    }
+    else if(time === "7")
+    {
+      newhours = history.filter((i) => parseInt(Math.abs(new Date() - duration.calculatetime(i.Date)) / (1000*60*60))  > 169 )
+      setHistory(newhours)
+    }
+    else if(time === "All")
+    {
+      setHistory([])
+    }
+
+}
 
 if(error)
   {
@@ -76,8 +124,10 @@ if(error)
 <Transitions>
 <main className="body825">
 <h1 style ={{position:"absolute",top:"10px"}} className="historyh1">History</h1>
-
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" className="trashcan" width="50px" height="50px" onClick={() => setOpen(true)}><path fill="#404040" d="M144 0H304l16 32H448V96H0V32H128L144 0zM32 128H416V512H32V128zm112 64H112v16V432v16h32V432 208 192zm96 0H208v16V432v16h32V432 208 192zm96 0H304v16V432v16h32V432 208 192z"/></svg>
 <div className="timeline">
+
+{history.length === 0 && <h1 className="errormsg88">No history available</h1>}
   {
     history.map((i) => {
 
@@ -106,6 +156,42 @@ if(error)
 
 </div>
 </main>
+<Dialog open={open} onClose={handleClose} fullWidth maxWidth="sm">
+     <form onSubmit={handleSubmit} >
+        <DialogTitle style={{fontSize:"20px",fontWeight:"bold"}}>Clear History</DialogTitle>
+        <Divider />
+        <DialogContent>
+          {/* <DialogContentText style={{fontSize:"15px"}}> */}
+          {/*  Remove  */}
+          {/* </DialogContentText> */}
+
+  <label htmlFor="duration"style={{fontSize:"20px"}}>Duration:</label>
+  <FormControl fullWidth>
+  <InputLabel id="demo-simple-select-label">Time</InputLabel>
+  <Select
+    labelId="demo-simple-select-label"
+    id="demo-simple-select"
+    value={time}
+    label="Age"
+    onChange={(e) => setTime(e.target.value)}
+  >
+    <MenuItem value={"7"} style={{fontSize:"15px"}}>Last 7 days</MenuItem>
+    <MenuItem value={"24"} style={{fontSize:"15px"}}>Last 24 hours</MenuItem>
+    <MenuItem value={"1"} style={{fontSize:"15px"}}>last hour</MenuItem>
+    <MenuItem value={"All"} style={{fontSize:"15px"}}>All</MenuItem>
+  </Select>
+</FormControl>
+
+        </DialogContent>
+        <DialogActions>
+          <Button  onClick={handleClose}>Cancel</Button>
+          <Button type="submit" onClick={handleClose}>Submit</Button>
+          
+        </DialogActions>
+        </form>
+
+
+      </Dialog>
 </Transitions>
 </>
 

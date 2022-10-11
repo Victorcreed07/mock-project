@@ -4,7 +4,7 @@ $gutter: 30px;
 $border-width: 4px;
 $dot-diameter: 8px;*/
 @import url('http://fonts.cdnfonts.com/css/8bit-wonder');
-
+@import "./font-awesome.min.css";
 .historyh1 {
 
   font-family: '8BIT WONDER', sans-serif;
@@ -13,6 +13,7 @@ $dot-diameter: 8px;*/
 .body825{
   background: linear-gradient(55deg,#4E75B9 30%,#5CBF98 90%);
   display: flex;
+
   align-items: center;
   justify-content: center;
   min-height: 100vh;
@@ -106,4 +107,22 @@ $dot-diameter: 8px;*/
       }
     }
   }
+}
+
+.trashcan {
+
+  position:absolute;
+  top:70px;
+  left:74%;
+  cursor: pointer;
+  bottom:20px;
+  color:#404040;
+}
+
+.errormsg88{
+
+   margin-top:5%;
+  margin-left:40%;
+  color:red;
+  font-family: '8BIT WONDER', sans-serif;
 }
