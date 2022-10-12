@@ -14,7 +14,7 @@ import { Outlet, Link ,useNavigate,useLocation } from "react-router-dom";
 const ForeCast = () => {
 
 	const location = useLocation()
-	const [load,setLoad] = useState(false)
+	const [load,setLoad] = useState(true)
 	const [index,setIndex] = useState(location.state.index)
 	const [sales,setSales] = useState(location.state.sales)
 	const [trsale,setTrSales] = useState(location.state.trsale)

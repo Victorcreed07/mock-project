@@ -3,3 +3,26 @@
 @import "./magnific-popup.css";
 @import "./font-awesome.min.css";
 @import "./templatemo-style";
+
+.imagelog {
+
+	margin-top:-10px;
+	width:110px;
+	height:110px;
+	-webkit-filter: invert(100%);
+}
+@font-face {
+   font-family: myFirstFont;
+   src: url('blackjack.otf');
+}
+
+
+.atla{
+
+	position:relative;
+	left:120%;
+	top:-220px;
+	color:black;
+	font-family: myFirstFont;
+	font-size:80px;
+}

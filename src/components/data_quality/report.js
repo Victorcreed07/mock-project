@@ -113,8 +113,8 @@ console.log(Object.values(newmatrix))
         </button>
       </header>
       <br />
-      	{showInfo && <p className="para" style={{fontSize:"20px"}}>{newdata.filetype?`The type of the file that is 
-      		uploaded is ${(newdata.filetype).slice(0,-1)}`:"Select FileType to view data"}</p>}
+      	{showInfo && <p className="para" style={{fontSize:"20px",color:"green"}}>{newdata.filetype?`The type of the file that is 
+      		uploaded is ${(newdata.filetype).slice(0,-1)}`:<span style={{fontSize:"20px"}} className="errortxt">Select FileType to view data</span>}</p>}
     		</article>
     		<br />
     		<br />
@@ -126,8 +126,8 @@ console.log(Object.values(newmatrix))
           {showInfo1 ? <AiOutlineMinus /> : <AiOutlinePlus />}
         </button>
       </header>
-      	{showInfo1 && <p className="para" style={{fontSize:"20px"}}>{newdata.shape?`The no of rows and columns present
-      		in this dataset is respectively ${(newdata.shape)}`:"Select shape to view data"}</p>}
+      	{showInfo1 && <p className="para" style={{fontSize:"20px",color:"green"}}>{newdata.shape?`The no of rows and columns present
+      		in this dataset is respectively ${(newdata.shape)}`:<span style={{fontSize:"20px"}} className="errortxt">Select shape to view data</span>}</p>}
     		</article>
 
 
@@ -141,8 +141,8 @@ console.log(Object.values(newmatrix))
           {showInfo2 ? <AiOutlineMinus /> : <AiOutlinePlus />}
         </button>
       </header>
-      	{showInfo2 && <p className="para" style={{fontSize:"20px"}}>{newdata.duplicates !== undefined ?`The total sum of all duplicate values
-      	present in this dataset is  ${newdata.duplicates}`:"Select duplicates to view data"}</p>}
+      	{showInfo2 && <p className="para" style={{fontSize:"20px",color:"green"}}>{newdata.duplicates !== undefined ?`The total sum of all duplicate values
+      	present in this dataset is  ${newdata.duplicates}`:<span style={{fontSize:"20px"}} className="errortxt">Select duplicates to view data</span>}</p>}
     		</article>
 
 <br />
@@ -175,7 +175,7 @@ console.log(Object.values(newmatrix))
   					})}
   				</tr>
       		</table>
-      	:"Select nullval to view data"}</p>}
+      	:<span style={{fontSize:"20px"}} className="errortxt">Select nullval to view data</span>}</p>}
       		 
       	
     		</article>
@@ -266,7 +266,7 @@ console.log(Object.values(newmatrix))
     
     </tbody>
   </table>
-  :"Select info to view data"}</p>}
+  :<span style={{fontSize:"20px"}} className="errortxt">Select info to view data</span>}</p>}
         
     		</article>
 
@@ -317,7 +317,7 @@ console.log(Object.values(newmatrix))
     
     </tbody>
   </table>
-  :"Select matrix to view data"}</p>}
+  :<span style={{fontSize:"20px"}} className="errortxt">Select matrix to view data</span>}</p>}
         
     		</article>
 

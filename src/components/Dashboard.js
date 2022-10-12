@@ -35,7 +35,7 @@ const handleLogout = () => {
 
                 
                    
-                     <img src="https://img.icons8.com/color/150/000000/sap.png" style={{marginTop: "-40px"}} />
+                     <img src="https://cdn.pixabay.com/photo/2022/08/22/03/07/logo-7402580__340.png" className="imagelog"  />
 
                </div>
 
@@ -56,15 +56,15 @@ const handleLogout = () => {
      </section>
 
 
-     <section id="home" data-stellar-background-ratio="0.5">
+     <section id="home" data-stellar-background-ratio="0.5" style={{height:"400px"}}>
           <div className="overlay"></div>
           <div className="container">
                <div className="row">
 
                     <div className="col-md-6 col-sm-12">
                          <div className="home-info">
-                              <h1>We make the world run better and improve people's lives.</h1>
-                              
+                              <h1 style={{marginTop:"200px"}}>We make the world run better and improve people's lives.</h1>
+                              <h1 className="atla">Atlantic-Corp Welcomes you</h1>
                               
                          </div>
                     </div>
@@ -87,7 +87,10 @@ const handleLogout = () => {
                                    <h2>Let us introduce</h2>
                                    <span className="line-bar">...</span>
                               </div>
-                              <p style={{fontSize:"24px",fontFamily: 'Jost',color: "black"}}>SAP is the market leader in enterprise application software, helping companies of all sizes and in all industries run at their best: SAP customers generate 87% of total global commerce. Our machine learning, Internet of Things (IoT), and advanced analytics technologies help turn customers’ businesses into intelligent enterprises. Our end-to-end suite of applications and services enables our customers to operate profitably, adapt continuously, and make a difference. </p>
+                              <p style={{fontSize:"24px",fontFamily: 'Jost',color: "black"}}>Atlantic-Corp has been around for 15
+                              years and our exploits are legendary,we have explored various domains and fields and have achieved
+                              lots of success and we always make our clients feel satisfied with our support and accomodations.
+                              Don't beleive us - JUST ASK!</p>
                          </div>
                     </div>
 
@@ -151,7 +154,7 @@ const handleLogout = () => {
                               <div className="media-body blog-info">
                                    <small></small>
                                    <h3><a href="">Quality Reporter</a></h3>
-                                   <p>Welcome to the customer portal.Click the button to log into it.</p>
+                                   <p>Welcome to the Quality Reporter.Click the button to log into it.</p>
                                     <Button variant="outlined"  style={{fontSize:"15px",fontWeight:20}}><Link to="/quality">Proceed</Link></Button>
                               </div>
                          </div>
@@ -166,7 +169,7 @@ const handleLogout = () => {
                               <div className="media-body blog-info">
                                    <small></small>
                                    <h3><a href="">Model Builder</a></h3>
-                                   <p>Welcome to the Vendor portal.Click the button to log into it.</p>
+                                   <p>Welcome to the Model Builder.Click the button to log into it.</p>
                                    <Button variant="outlined"   style={{fontSize:"15px",fontWeight:20}}><Link to="/modelbuilder">Proceed</Link></Button>
                               </div>
                          </div>
@@ -183,7 +186,7 @@ const handleLogout = () => {
                               <div className="media-body blog-info">
                                    <small></small>
                                    <h3><a href="">Sales Forecasting</a></h3>
-                                   <p>Welcome to the Employee portal.Click the button to log into it.</p>
+                                   <p>Welcome to Sales Forecasting.Click the button to log into it.</p>
                                    <Button variant="outlined"  style={{fontSize:"15px",fontWeight:20}}><Link to="/forecast">Proceed</Link></Button>
                               </div>
                          </div>
@@ -197,7 +200,7 @@ const handleLogout = () => {
                               <div className="media-body blog-info">
                                    <small></small>
                                    <h3><a href="">Algorithm Analyzer</a></h3>
-                                   <p>Welcome to the Employee portal.Click the button to log into it.</p>
+                                   <p>Welcome to Algorithm Analyzer.Click the button to log into it.</p>
                                    <Button variant="outlined"  style={{fontSize:"15px",fontWeight:20}}><Link to="/algoanalyzer">Proceed</Link></Button>
                               </div>
                          </div>
@@ -223,10 +226,10 @@ const handleLogout = () => {
                       
                          <div className="work-thumb">
                               <a href="assets/work-image1.jpg" className="image-popup">
-                                   <img src="https://www.stechies.com/userfiles/images/ST-Sol-Manager.jpg" className="img-responsive" alt="Work" />
+                                   <img src="https://www.plm.automation.siemens.com/media/global/en/8b365176-98c3-4650-8447-52c8caa72aa3_Xcelerator-flat-640x480_tcm27-85599.jpg" className="img-responsive" alt="Work" style={{height: "200px",width:"300px"}} />
 
                                    <div className="work-info">
-                                        <h3>SAP Solution Manager</h3>
+                                        <h3>Xcelerator</h3>
                                         
                                    </div>
                               </a>
@@ -237,10 +240,10 @@ const handleLogout = () => {
                        
                          <div className="work-thumb">
                               <a href="assets/work-image2.jpg" className="image-popup">
-                                   <img src="https://d1rytvr7gmk1sx.cloudfront.net/wp-content/uploads/2017/05/sap-cloud-logo.png" className="img-responsive" alt="Work" style={{height: "250px"}} />
+                                   <img src="https://www.channelfutures.com/files/2017/07/CRM.jpg" className="img-responsive" alt="Work" style={{height: "220px",width:"320px"}} />
 
                                    <div className="work-info">
-                                        <h3>SAP S/4 HANA CLOUD</h3>
+                                        <h3>CRM V4.56</h3>
                                         
                                    </div>
                               </a>
@@ -251,10 +254,10 @@ const handleLogout = () => {
                      
                          <div className="work-thumb">
                               <a href="assets/work-image3.jpg" className="image-popup">
-                                   <img src="https://www.isystechworks.com/wp-content/uploads/2018/03/SAP-9.3-Image-01.png" className="img-responsive" alt="Work" style={{height: "250px"}} />
+                                   <img src="https://roboticsandautomationnews.com/wp-content/uploads/2019/08/erp-image.png" className="img-responsive" alt="Work" style={{height: "220px"}} />
 
                                    <div className="work-info">
-                                        <h3>SAP Bussiness One</h3>
+                                        <h3>AC ERP</h3>
                                         
                                    </div>
                               </a>
@@ -265,10 +268,10 @@ const handleLogout = () => {
                       
                          <div className="work-thumb">
                               <a href="assets/work-image4.jpg" className="image-popup">
-                                   <img src="https://i0.wp.com/www.technosap.com/wp-content/uploads/2012/12/PLM1.png?ssl=1" className="img-responsive" alt="Work" />
+                                   <img src="https://i0.wp.com/www.technosap.com/wp-content/uploads/2012/12/PLM1.png?ssl=1" className="img-responsive" alt="Work" style={{height: "220px"}} />
 
                                    <div className="work-info">
-                                        <h3>SAP Product Lifecycle Management</h3>
+                                        <h3>AC Product Lifecycle Management</h3>
                                         
                                    </div>
                               </a>
@@ -285,7 +288,7 @@ const handleLogout = () => {
 
                     <div className="col-md-5 col-sm-12">
                          <div className="footer-thumb footer-info"> 
-                              <h2>SAP</h2>
+                              <h2>Atlantic-Corp</h2>
                               <p>Thank you for reaching us.Do check out our other 
                               services and products and don't hesitate to contact us 
                          either using any of the aforementioned handles or just

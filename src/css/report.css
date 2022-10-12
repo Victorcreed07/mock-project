@@ -182,3 +182,8 @@ background: linear-gradient(
   align-items: center;
    height: 600px;
 }
+
+.errortxt {
+
+  color:#ff0000;
+}
