@@ -63,13 +63,8 @@ const handleClick = () => {
 	<div className="left">
 		<div className="newover">
 		<h1>We've been expecting <br />you</h1>
-		<p style={{color:"white"}}>Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-		Curabitur et est sed felis aliquet sollicitudin</p>
-		<span>
-			<p>Login with social media</p>
-			<a href="#"><i className="fa fa-facebook" aria-hidden="true"></i></a>
-			<a href="#"><i className="fa fa-twitter" aria-hidden="true"></i> Login with Twitter</a>
-		</span>
+		
+		
 		</div>
 	</div>
 	
