@@ -23,6 +23,7 @@ const SaleHistory = () => {
 const [history,setHistory] = useState([])
 const [loading,setLoading] = useState(false)
 const [error,setError] = useState(false)
+const baseurl = 'https://mock-project-api.onrender.com';
 const [open,setOpen] = useState(false)
 const [time,setTime] = useState("All")
 const duration = useAuth();
@@ -36,7 +37,7 @@ useEffect(() => {
  
 
 
-axios.get("http://localhost:5000/sale_history")
+axios.get(`${baseurl}/sale_history`)
       .then(function (response) {
          
         setHistory(response.data.history)
