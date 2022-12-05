@@ -47,22 +47,22 @@ const newdata= JSON.parse(localStorage.getItem('DATA'))
 // console.log(newdata.nullval.length)
 console.log(newdata)
 
-if(get_data.nullval)
+if(get_data?.nullval)
 	{
-const val123 = JSON.parse(newdata.nullval)
+const val123 = JSON.parse(newdata?.nullval)
  row = Object.values(val123)
  column = Object.keys(val123)
 console.log(Object.keys(val123))
 console.log(Object.values(val123))
 }
-if(newdata.duplicates !== null || newdata.duplicates !== undefined)
+if(newdata?.duplicates !== null || newdata?.duplicates !== undefined)
 	{
-		duplicates = String(newdata.duplicates)
+		duplicates = String(newdata?.duplicates)
 		}
 
-if(get_data.info)
+if(get_data?.info)
   {
-const newinfo = JSON.parse(newdata.info)
+const newinfo = JSON.parse(newdata?.info)
   console.log(newinfo)
 
   row1 = Object.values(newinfo)
@@ -72,9 +72,9 @@ console.log(Object.values(newinfo))
 
 }
 
-if(get_data.matrix)
+if(get_data?.matrix)
   {
-const newmatrix = JSON.parse(newdata.matrix)
+const newmatrix = JSON.parse(newdata?.matrix)
   console.log(newmatrix)
 
   row2 = Object.values(newmatrix)
@@ -113,7 +113,7 @@ console.log(Object.values(newmatrix))
         </button>
       </header>
       <br />
-      	{showInfo && <p className="para" style={{fontSize:"20px",color:"green"}}>{newdata?.filetype?`The type of the file that is 
+      	{showInfo && <p className="para" style={{fontSize:"20px",color:"green"}}>{(newdata?.filetype)?`The type of the file that is 
       		uploaded is ${(newdata.filetype).slice(0,-1)}`:<span style={{fontSize:"20px"}} className="errortxt">Select FileType to view data</span>}</p>}
     		</article>
     		<br />
@@ -126,7 +126,7 @@ console.log(Object.values(newmatrix))
           {showInfo1 ? <AiOutlineMinus /> : <AiOutlinePlus />}
         </button>
       </header>
-      	{showInfo1 && <p className="para" style={{fontSize:"20px",color:"green"}}>{newdata?.shape?`The no of rows and columns present
+      	{showInfo1 && <p className="para" style={{fontSize:"20px",color:"green"}}>{(newdata?.shape)?`The no of rows and columns present
       		in this dataset is respectively ${(newdata.shape)}`:<span style={{fontSize:"20px"}} className="errortxt">Select shape to view data</span>}</p>}
     		</article>
 
@@ -141,7 +141,7 @@ console.log(Object.values(newmatrix))
           {showInfo2 ? <AiOutlineMinus /> : <AiOutlinePlus />}
         </button>
       </header>
-      	{showInfo2 && <p className="para" style={{fontSize:"20px",color:"green"}}>{newdata?.duplicates !== undefined ?`The total sum of all duplicate values
+      	{showInfo2 && <p className="para" style={{fontSize:"20px",color:"green"}}>{(newdata?.duplicates) !== undefined ?`The total sum of all duplicate values
       	present in this dataset is  ${newdata.duplicates}`:<span style={{fontSize:"20px"}} className="errortxt">Select duplicates to view data</span>}</p>}
     		</article>
 
@@ -154,10 +154,10 @@ console.log(Object.values(newmatrix))
           {showInfo3 ? <AiOutlineMinus /> : <AiOutlinePlus />}
         </button>
       </header>
-      	{showInfo3 && <p className="para">{newdata?.nullval ?
+      	{showInfo3 && <p className="para">{(newdata?.nullval) ?
       		<table style={{tableLayout: "fixed" ,width: "100%"}}>
       			<tr>
-				    {column.map((i) => {
+				    {column?.map((i) => {
 
 				    	return (
 
@@ -166,7 +166,7 @@ console.log(Object.values(newmatrix))
 				    })}
   				</tr>
   				<tr>
-  					{row.map((i) => {
+  					{row?.map((i) => {
 
   						return (
 
@@ -189,7 +189,7 @@ console.log(Object.values(newmatrix))
           {showInfo4 ? <AiOutlineMinus /> : <AiOutlinePlus />}
         </button>
       </header>
-      	{showInfo4 && <p className="para">{newdata?.info ?
+      	{showInfo4 && <p className="para">{(newdata?.info) ?
 
           
 <table style = {{tableLayout: "fixed" ,width: "100%"}}>
@@ -207,7 +207,7 @@ console.log(Object.values(newmatrix))
       {/* <th>Customers</th> */}
       {/* <th>Community</th> */}
 
-      {column1.map((i)=> {
+      {column1?.map((i)=> {
 
         return (
 
@@ -280,7 +280,7 @@ console.log(Object.values(newmatrix))
           {showInfo5 ? <AiOutlineMinus /> : <AiOutlinePlus />}
         </button>
       </header>
-      	{showInfo5 && <p className="para">{newdata.matrix ?
+      	{showInfo5 && <p className="para">{(newdata?.matrix) ?
 
           
 <table style = {{tableLayout: "fixed" ,width: "100%"}}>
