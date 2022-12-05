@@ -16,6 +16,7 @@ const AboutSales = () => {
 	const [index,setIndex] = useState()
 	const [market,setMarket] = useState()
 	const [index2,setIndex2] = useState()
+	const baseurl = 'https://mock-project-api.onrender.com';
 	const [segment,setSegment] = useState()
 	const [y1,setY1] = useState()
 	const [y2,setY2] = useState()
@@ -53,7 +54,7 @@ console.log(time)
 
 
 setLoad(true)
-	axios.post("http://localhost:5000/getforecast",time)
+	axios.post(`${baseurl}/getforecast`,time)
       .then(function (response) {
       	
       	for(var i=0;i<response.data.original.index.length;i++)
@@ -117,7 +118,7 @@ setLoad(true)
 
 useEffect(() => {
 
-axios.get("http://localhost:5000/getbasedata")
+axios.get(`${baseurl}/getbasedata`)
       .then(function (response) {
 
         setIndex(response.data.marketcount.index)
