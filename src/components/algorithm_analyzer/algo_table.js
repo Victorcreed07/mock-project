@@ -7,9 +7,9 @@ const Table = () => {
 
 const location = useLocation()
 const [Tablecol,setTablecol] = useState(location.state.table?.columns)
-const [Tablerow,setTablerow] = useState(location.state.table.data)
-const [Table,setTable] = useState(location.state.table)
- const [model,setModel] = useState(location.state.model)
+const [Tablerow,setTablerow] = useState(location.state.table?.data)
+const [Table,setTable] = useState(location.state?.table)
+ const [model,setModel] = useState(location.state?.model)
 const [data,setData] = useState()
 const [disable,setDisable] = useState(location.state.eda)
  const [sortField, setSortField] = useState("");
@@ -61,7 +61,7 @@ const handleSorting = (sortField, sortOrder) => {
 </div>
 
   <div className="container">
-  {Table?.columns.length === 0 && <h1 className="errormsgg">No data to show.Try something else</h1>}
+  {Table?.columns?.length === 0 && <h1 className="errormsgg">No data to show.Try something else</h1>}
 	<table>
 		<thead>
 			<tr>
