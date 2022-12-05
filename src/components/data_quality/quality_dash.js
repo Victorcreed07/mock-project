@@ -20,7 +20,7 @@ const Quality = () => {
 const [open,setOpen] = useState(false)
 
 const [prodata,setProdata] = useState()
-
+const baseurl = 'https://mock-project-api.onrender.com';
 const navigate = useNavigate()
 const [text,setText] = useState("No file Chosen")
 
@@ -58,7 +58,7 @@ for(let j = 0; j < len2; j++)
 
   }
 
-   axios.post("http://localhost:5000/get_data",formData)
+   axios.post(`${baseurl}/get_data`,formData)
       .then(function (response) {
 
 
