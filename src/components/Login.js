@@ -11,7 +11,7 @@ const [name,setName] = useState("")
 const [password,setPassword] = useState("")
 const [error,setError] = useState(false)
  const navigate = useNavigate();
-
+const baseurl = 'https://mock-project-api.onrender.com';
  const auth = useAuth();
 const handleClick = () => {
     
@@ -26,7 +26,7 @@ const handleClick = () => {
     	"name":name,
     	"password":password
     }
-    axios.post("http://localhost:5000/login", data)
+    axios.post(`${baseurl}/login`, data)
       .then(function (response) {
        
         console.log(response.data)
