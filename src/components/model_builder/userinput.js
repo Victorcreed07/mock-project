@@ -10,6 +10,7 @@ const [name,setName] = useState("")
 const [weight,setWeight] = useState("")
 const [height,setHeight] = useState("")
 const [birthday,setBirthday] = useState("")
+const baseurl = 'https://mock-project-api.onrender.com';
 const [result,setResult] = useState()
 const [pregnancy,setPregnancy] = useState()
 const [load,setLoad] = useState(false)
@@ -120,7 +121,7 @@ const data ={
 }
 console.log(data);
 
-axios.post("http://localhost:5000/get_prediction", data)
+axios.post(`${baseurl}/get_prediction`, data)
       .then(function (response) {
         
         console.log(response.data)
