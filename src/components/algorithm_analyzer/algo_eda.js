@@ -9,7 +9,8 @@ const BasicEDA = () => {
 
 
 		<>
-		<div dangerouslySetInnerHTML={ {__html: htmlContent} } />
+// 		<div dangerouslySetInnerHTML={ {__html: htmlContent} } />
+		<div>Nope</div>
 		</>
 		)
 }
