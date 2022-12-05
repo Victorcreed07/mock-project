@@ -6,7 +6,7 @@ import { TbSortAscending2,TbSortDescending2 } from "react-icons/tb";
 const Table = () => {
 
 const location = useLocation()
-const [Tablecol,setTablecol] = useState(location.state.table.columns)
+const [Tablecol,setTablecol] = useState(location.state.table?.columns)
 const [Tablerow,setTablerow] = useState(location.state.table.data)
 const [Table,setTable] = useState(location.state.table)
  const [model,setModel] = useState(location.state.model)
@@ -61,11 +61,11 @@ const handleSorting = (sortField, sortOrder) => {
 </div>
 
   <div className="container">
-  {Table.columns.length === 0 && <h1 className="errormsgg">No data to show.Try something else</h1>}
+  {Table?.columns.length === 0 && <h1 className="errormsgg">No data to show.Try something else</h1>}
 	<table>
 		<thead>
 			<tr>
-				{Tablecol.map((i,index)=> {
+				{Tablecol?.map((i,index)=> {
 
           	return (
 
@@ -75,12 +75,12 @@ const handleSorting = (sortField, sortOrder) => {
 			</tr>
 		</thead>
 		<tbody>
-			{Tablerow.map((i) => {
+			{Tablerow?.map((i) => {
 
 
         	return (
         	<tr>
-        		{i.map((j) => {
+        		{i?.map((j) => {
 
         			return (
 
