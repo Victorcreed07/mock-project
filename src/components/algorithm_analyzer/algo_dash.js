@@ -38,6 +38,7 @@ const [text,setText] = useState("No file chosen")
 const [data,setData] = useState()
 const [load,setLoad] = useState(false)
 const [proceed,setProceed] = useState(true)
+const baseurl = 'https://mock-project-api.onrender.com';
 const [model,setModel] = useState("")
 const [target,setTarget]  = useState()
 const [form,setForm] = useState()
@@ -81,7 +82,7 @@ setForm(formData)
   localStorage.setItem("text", JSON.stringify(text));
 
 setLoad(true)
- axios.post("http://localhost:5000/getalgo_data",formData,{ params:{
+ axios.post(`${baseurl}/getalgo_data`,formData,{ params:{
   eda 
 }})
       .then(function (response) {
@@ -114,7 +115,7 @@ const newdat = {
  localStorage.setItem("model", JSON.stringify(model));
 console.log(newdat)
 setLoad(true)
-axios.post("http://localhost:5000/gettable",form,{ params: {
+axios.post(`${baseurl}/gettable`,form,{ params: {
   target,
   model
 }})
