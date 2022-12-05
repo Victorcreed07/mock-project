@@ -27,6 +27,7 @@ const [backhistory,setBackup] = useState([])
 const [loading,setLoading] = useState(false)
 const [error,setError] = useState(false)
 const [open,setOpen] = useState(false)
+const baseurl = 'https://mock-project-api.onrender.com';
 const [time,setTime] = useState("All")
 const duration = useAuth();
 const handleClose = () => {
@@ -73,7 +74,7 @@ useEffect(() => {
  
 
 
-axios.get("http://localhost:5000/read_history")
+axios.get(`${baseurl}/read_history`)
       .then(function (response) {
 
         setHistory(response.data.history)
