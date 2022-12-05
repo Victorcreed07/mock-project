@@ -14,6 +14,7 @@ const refContain = useRef(null)
 const location = useLocation()
 const [error,setError] = useState(false)
 const [output,setOutput] = useState(location.state.output)
+const baseurl = 'https://mock-project-api.onrender.com';
 const [train,setTrain] = useState([
   {
     x: 0,
@@ -78,7 +79,7 @@ const datapoints2 = [];
 console.log()
 useEffect(() => {
 
-	axios.get("http://localhost:5000/chart_data")
+	axios.get(`${baseurl}/chart_data`)
       .then(function (response) {
       	setError(false)
       	for(var i=0;i<response.data.testing.length;i++)
