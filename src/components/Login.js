@@ -7,8 +7,8 @@ import { Outlet, Link ,useNavigate } from "react-router-dom";
 import {useAuth} from "./auth.js";
 const Login = () => {
 
-const [name,setName] = useState("")
-const [password,setPassword] = useState("")
+const [name,setName] = useState("George_6868")
+const [password,setPassword] = useState("charles07")
 const [error,setError] = useState(false)
  const navigate = useNavigate();
 const baseurl = 'https://mock-project-api.onrender.com';
